@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ang Kislap-Diwa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <ul class="nav-links nav-left">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#laboratories">Laboratories</a></li>
+      </ul>
+      <a href="#hero" class="nav-logo">
+        <img src="images/dnd_logo.png" alt="DND Production" />
+      </a>
+      <ul class="nav-links nav-right">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#watch" class="nav-cta">Watch Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-layer layer-bg"></div>
+
+    <div class="hero-layer layer-clouds-back" data-speed="0.08">
+      <img src="images/cloud-background.png" alt="" class="cloud-back" />
+    </div>
+
+    <div class="hero-layer layer-title" data-speed="0.22" id="filmTitle">
+      <img src="images/kislap-diwa-title.png" alt="Ang Kislap-Diwa" class="title-img" />
+    </div>
+
+    <div class="hero-layer layer-building" data-speed="0.18">
+      <img src="images/campus-building.png" alt="National University Campus" class="building-img" />
+    </div>
+
+    <div class="hero-layer layer-tree-left" data-speed="0.38">
+      <img src="images/side-trees.png" alt="" class="tree-left" />
+    </div>
+
+    <div class="hero-layer layer-tree-right" data-speed="0.32">
+      <img src="images/side-trees.png" alt="" class="tree-right" />
+    </div>
+
+    <div class="building-fade"></div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- FILM TEASER -->
+  <section class="teaser-section" id="teaser">
+    <canvas class="stars-canvas" id="starsCanvas"></canvas>
+
+    <div class="teaser-inner">
+      <div class="teaser-content">
+        <div class="teaser-video reveal-el" data-reveal="fade-right">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/SgXKtAlqhPw?si=wLUnskgSWeT0z6uc"
+              title="Ang Kislap-Diwa — Official Teaser"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="teaser-desc reveal-el" data-reveal="fade-left">
+          <div class="teaser-title reveal-el" data-reveal="fade-up">
+            <img src="images/kislap-diwa-title.png" alt="Ang Kislap-Diwa" class="teaser-title-img" />
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, sapien in rhoncus tincidunt,
+            tellus est varius velit, eu laoreet lorem turpis id leo. Nullam ut ultrices ipsum. Curabitur non
+            eleifend orci, ac aliquam arcu. Proin ac sodales est. In rutrum nibh elit, at vestibulum dolor
+            lobortis vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut porta mi.
+            Vestibulum luctus ultrices erat, ut dignissim quam sagittis vel.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="teaser-fade-bottom"></div>
+  </section>
+
+  <section class="labs-section" id="laboratories">
+    <canvas class="labs-stars-canvas" id="labsStarsCanvas"></canvas>
+
+    <div class="labs-parallax-layer labs-layer-1" data-labs-speed="0.06"></div>
+    <div class="labs-parallax-layer labs-layer-2" data-labs-speed="0.12"></div>
+
+    <div class="labs-inner">
+
+      <h2 class="labs-title reveal-el" data-reveal="fade-up">College Laboratories</h2>
+
+      <div class="lab-stack-wrapper reveal-el" data-reveal="fade-up">
+        <div class="lab-stack" id="labStack">
+          <!-- Cards injected by JS -->
+        </div>
+      </div>
+
+      <div class="labs-divider reveal-el" data-reveal="fade-up"></div>
+
+      <div class="labs-nav reveal-el" data-reveal="fade-up">
+        <button class="labs-nav-btn" id="labPrev" aria-label="Previous laboratory">&#8249;</button>
+        <span class="labs-nav-label" id="labNavLabel">Computer Laboratory</span>
+        <button class="labs-nav-btn" id="labNext" aria-label="Next laboratory">&#8250;</button>
+      </div>
+
+      <h2 class="labs-title labs-guidelines-title reveal-el" data-reveal="fade-up">Laboratory Guidelines</h2>
+
+      <div class="guidelines-carousel-wrapper reveal-el" data-reveal="fade-up">
+        <div class="guidelines-carousel" id="guidelinesCarousel">
+        </div>
+        <div class="guide-dots" id="guideDots"></div>
+      </div>
+
+      <a class="labs-download-btn reveal-el" data-reveal="fade-up" id="labsDownloadBtn" href="#" download>
+        <img class="labs-dl-icon" src="images/download-btn.png" alt="Download Icon">
+        <span class="labs-dl-text" id="labsDlText">Computer Laboratory Safety Instruction Manual</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section class="about-section" id="about">
+
+    <div class="about-bg" id="aboutBg"></div>
+    <div class="about-overlay"></div>
+
+    <div class="about-parallax-layer about-layer-1" data-about-speed="0.05"></div>
+    <div class="about-parallax-layer about-layer-2" data-about-speed="0.10"></div>
+
+    <div class="about-inner">
+
+      <div class="about-top reveal-el" data-reveal="fade-up">
+        <div class="about-headline">
+          <span>What is</span>
+          <span>Kislap-Diwa?</span>
+        </div>
+        <div class="about-desc">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in metus ornare,
+            ultricies magna vel, convallis quam. Vivamus eu rutrum justo. Nam sagittis gravida
+            eros, in cursus neque mollis gravida. Integer sit amet posuere leo. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce sed nibh
+            tellus. Proin iaculis turpis ex. Aliquam porta nisi a nunc placerat, at faucibus nisl
+            mollis. Sed lobortis consectetur justo vel maximus. Pellentesque venenatis metus
+            fringilla, pulvinar justo quis, ultricies elit.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-meet-title reveal-el" data-reveal="fade-up">
+        <h2>Meet the DND Production</h2>
+      </div>
+
+      <div class="about-cards-stage" id="aboutCardsStage">
+
+        <!-- Row 1 -->
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="1"
+             style="--card-x: 1%; --card-y: 5%; --card-rot: -8deg; --card-delay: 0.05s;">
+          <img src="images/cruz.png" alt="Member 1" />
+        </div>
+
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="2"
+             style="--card-x: 34%; --card-y: -2%; --card-rot: 4deg; --card-delay: 0.12s;">
+          <img src="images/laput.png" alt="Member 2" />
+        </div>
+
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="3"
+             style="--card-x: 66%; --card-y: 5%; --card-rot: 7deg; --card-delay: 0.08s;">
+          <img src="images/gascon.png" alt="Member 3" />
+        </div>
+
+        <!-- Row 2 -->
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="4"
+             style="--card-x: 1%; --card-y: 55%; --card-rot: -6deg; --card-delay: 0.18s;">
+          <img src="images/oligo.png" alt="Member 4" />
+        </div>
+
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="5"
+             style="--card-x: 34%; --card-y: 60%; --card-rot: -4deg; --card-delay: 0.22s;">
+          <img src="images/malinis.png" alt="Member 5" />
+        </div>
+
+        <div class="member-card reveal-el" data-reveal="fade-up" data-member="6"
+             style="--card-x: 66%; --card-y: 55%; --card-rot: 5deg; --card-delay: 0.15s;">
+          <img src="images/corocoto.png" alt="Member 6" />
+        </div>
+      </div>
+    </div>
+
+    <div class="card-lightbox" id="cardLightbox">
+      <div class="card-lightbox-backdrop" id="cardLightboxBackdrop"></div>
+      <div class="card-lightbox-card" id="cardLightboxCard">
+        <img id="cardLightboxImg" src="" alt="" />
+      </div>
+    </div>
+
+  </section>
+
+  <section class="watch-section" id="watch">
+
+    <div class="watch-bg" id="watchBg"></div>
+    <div class="watch-overlay-top"></div>
+    <div class="watch-overlay-bottom"></div>
+
+    <div class="watch-inner">
+
+      <h2 class="watch-title reveal-el" data-reveal="fade-up">Watch Ang Kislap-Diwa</h2>
+
+      <div class="watch-video-wrap reveal-el" data-reveal="fade-up">
+        <div class="watch-video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/SgXKtAlqhPw?si=wLUnskgSWeT0z6uc"
+            title="Ang Kislap-Diwa — Full Film"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <p class="watch-subtitle reveal-el" data-reveal="fade-up">We would love to know your thoughts about the film!</p>
+
+      <button class="watch-feedback-btn reveal-el" data-reveal="fade-up" id="feedbackBtn">
+        <img src="images/mail.png" alt="" class="watch-mail-icon" />
+        <span>Submit Feedback</span>
+      </button>
+
+    </div>
+  </section>
+
+  <div class="feedback-modal" id="feedbackModal" role="dialog" aria-modal="true" aria-label="Submit Feedback">
+    <div class="feedback-backdrop" id="feedbackBackdrop"></div>
+    <div class="feedback-box">
+      <button class="feedback-close" id="feedbackClose" aria-label="Close">&#x2715;</button>
+      <h3 class="feedback-modal-title">Share Your Thoughts</h3>
+      <p class="feedback-modal-sub">Your feedback means a lot to the DND Production team.</p>
+
+      <form class="feedback-form" id="feedbackForm" novalidate>
+        <div class="fb-field">
+          <label for="fbName">Name</label>
+          <input type="text" id="fbName" name="name" placeholder="Your name" required />
+        </div>
+        <div class="fb-field">
+          <label for="fbEmail">Email</label>
+          <input type="email" id="fbEmail" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="fb-field">
+          <label for="fbMessage">Message</label>
+          <textarea id="fbMessage" name="message" rows="5" placeholder="Write your thoughts here…" required></textarea>
+        </div>
+        <button type="submit" class="fb-submit">Submit</button>
+      </form>
+
+      <div class="feedback-success" id="feedbackSuccess">
+        <div class="feedback-success-icon">✓</div>
+        <p>Thank you for your feedback!</p>
+        <span>The DND Production team appreciates your thoughts.</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="footer">
+
+    <div class="footer-wave">
+      <svg viewBox="0 0 1440 220"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none">
+
+        <path
+          d="
+            M0,120
+            C120,220 240,0 360,120
+            C480,240 600,0 720,110
+            C840,220 960,20 1080,120
+            C1200,240 1320,0 1440,100
+            L1440,220
+            L0,220
+            Z"
+          fill="#020c45"/>
+      </svg>
+    </div>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <p class="footer-brand-name">DND Productions</p>
+        <p class="footer-tagline">A Spark of Awareness, A System of Protection.</p>
+      </div>
+
+      <div class="footer-contact">
+        <p>National University · Manila</p>
+        <p>551 M.F. Jhocson St. Sampaloc, Manila</p>
+        <p>dndproductions.nu@gmail.com</p>
+        <p>+63 994 · 655 · 3013</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#hero">Home</a>
+        <a href="#laboratories">Laboratories</a>
+        <a href="#about">About Us</a>
+        <a href="#watch">Watch Now</a>
+      </nav>
+
+      <div class="footer-logos">
+        <img src="images/spongebob.png" alt="Stakeholder logo" />
+        <img src="images/spongebob.png" alt="Stakeholder logo" />
+        <img src="images/spongebob.png" alt="Stakeholder logo" />
+        <img src="images/spongebob.png" alt="Stakeholder logo" />
+      </div>
+
+    </div>
+
+    <div class="footer-copy">
+      <p>© 2026 DND Productions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("4yyfL8je27ObSKjjm");
+  </script>
+
+  <script src="script.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
