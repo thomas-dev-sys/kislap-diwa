@@ -627,14 +627,18 @@
       if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
     });
 
+    let isSubmitting = false;
+
     form.addEventListener('submit', e => {
       e.preventDefault();
+      if (isSubmitting) return;
 
       const name = form.querySelector('#fbName').value.trim();
       const email = form.querySelector('#fbEmail').value.trim();
       const message = form.querySelector('#fbMessage').value.trim();
       if (!name || !email || !message) return;
 
+      isSubmitting = true;
       const submitBtn = form.querySelector('.fb-submit');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
@@ -650,7 +654,6 @@
       emailjs.send('service_nb49q9c', 'template_wln9lkj', templateParams)
         .then(() => emailjs.send('service_nb49q9c', 'template_thjcbao', templateParams))
         .then(() => {
-          // Show success (your existing behavior)
           form.classList.add('is-hidden');
           success.classList.add('is-visible');
 
@@ -659,12 +662,14 @@
             form.reset();
             submitBtn.disabled = false;
             submitBtn.textContent = 'Submit';
+            isSubmitting = false;
           }, 3200);
         })
         .catch((error) => {
           console.error('EmailJS error:', error);
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit';
+          isSubmitting = false;
           alert('Something went wrong. Please try again.');
         });
     });

@@ -177,8 +177,9 @@ img { display: block; max-width: 100%; }
 }
 
 .title-img {
-  width: 400px;
+  width: clamp(180px, 34vw, 480px);
   height: auto;
+  max-width: 90vw;
 }
 
 .layer-title.animate-float .title-img {
@@ -528,23 +529,25 @@ img { display: block; max-width: 100%; }
 }
 
 .lab-card-img {
+  position: relative;
   height: 100%;
-  padding: 24px;
+  padding: 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .lab-card-img img {
   width: 100%;
-  height: auto;              /* IMPORTANT: stops square stretching */
-  aspect-ratio: 16 / 10;     /* forces rectangle shape */
+  height: 100%;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
-
   border-radius: 8px;
   display: block;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-height: 100%;
 }
 
 .lab-card-body {
@@ -653,10 +656,10 @@ img { display: block; max-width: 100%; }
   top: 50%;
   left: 50%;
   /* card size */
-  width: 290px;
-  height: 320px;
-  margin-top:  -160px;
-  margin-left: -145px;
+  width: clamp(200px, 28vw, 290px);
+  height: clamp(240px, 38vw, 320px);
+  margin-top: calc(clamp(240px, 38vw, 320px) / -2);
+  margin-left: calc(clamp(200px, 28vw, 290px) / -2);
 
   background: var(--gold);
   border-radius: 18px;
@@ -686,7 +689,7 @@ img { display: block; max-width: 100%; }
 /* Text */
 .guide-card-num {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
   letter-spacing: 0.12em;
   text-align: center;
   color: var(--navy);
@@ -694,7 +697,7 @@ img { display: block; max-width: 100%; }
 }
 .guide-card-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.7rem;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-align: center;
@@ -703,7 +706,7 @@ img { display: block; max-width: 100%; }
 }
 .guide-card-body {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  font-size: clamp(0.72rem, 1.1vw, 0.9rem);
   font-weight: 400;
   text-align: justify;
   color: rgba(2,12,69,0.82);
@@ -1165,14 +1168,14 @@ img { display: block; max-width: 100%; }
   z-index: 10;
   background: var(--navy);
   color: #fff;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .footer-wave {
   position: relative;
-  top: -100px;
-  margin-bottom: -100px;
-  z-index: 2;
+  display: block;
+  line-height: 0;  /* eliminates any inline-block gap */
+  margin-bottom: -2px; /* ensures zero gap between wave and footer body */
 }
 
 .footer-wave svg {
@@ -1191,7 +1194,7 @@ img { display: block; max-width: 100%; }
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 64px 0;
+  padding: 48px 64px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -1540,81 +1543,275 @@ img { display: block; max-width: 100%; }
   display: block;
 }
 
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — COMPLETE SYSTEM
+   Targets: Hero · Labs · Watch Now · About · Footer
+   Breakpoints: 1400 · 1280 · 1024 · 860 · 768 · 600 · 480 · 380
+   ══════════════════════════════════════════════════ */
+
+/* ─── Large desktop (≥1400px) ──────────────────── */
 @media (min-width: 1400px) {
   .building-img { width: clamp(960px, 88vw, 1360px); }
-  .title-img { width: 500px; }
 }
 
+/* ─── 1280px ─────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .building-img { width: clamp(680px, 88vw, 1100px); }
+  .tree-left    { width: 42vw; left: -12vw; }
+  .tree-right   { width: 42vw; right: -13vw; }
+  .lab-stack    { height: min(420px, 60vh); }
+  .lab-card-title { font-size: 3.2rem; }
+  .guide-card   { width: 265px; height: 300px; margin-top: -150px; margin-left: -132px; }
+  .watch-inner  { width: min(1100px, 94vw); }
+}
+
+/* ─── 1024px – tablet landscape ─────────────────── */
 @media (max-width: 1024px) {
+  /* NAV */
   .navbar       { min-width: 560px; max-width: 760px; top: 14px; }
   .nav-links    { gap: 24px; }
   .nav-links a  { font-size: 1.05rem; }
-  .title-img    { width: clamp(240px, 44vw, 440px); }
+
+  /* HERO */
   .building-img { width: clamp(600px, 92vw, 1000px); }
-  .tree-left    { width: clamp(160px, 20vw, 280px); margin-left: -3vw; }
-  .tree-right   { width: clamp(160px, 20vw, 280px); margin-right: -3vw; }
+  .tree-left    { width: 38vw; left: -10vw; }
+  .tree-right   { width: 38vw; right: -11vw; }
   .layer-title  { padding-top: 9vh; }
+
+  /* LABS */
+  .lab-card           { grid-template-columns: 1fr; grid-template-rows: 220px 1fr; height: auto; min-height: 420px; }
+  .lab-stack          { height: min(460px, 62vh); }
+  .lab-card-img       { height: 220px; padding: 16px; }
+  .lab-card-img img   { height: 100%; aspect-ratio: unset; }
+  .lab-card-body      { padding: 20px 24px 28px; margin-left: 0; gap: 10px; }
+  .lab-card-title     { font-size: 3rem; line-height: 0.85; }
+  .lab-card-desc      { font-size: 0.78rem; -webkit-line-clamp: 6; }
+  .guide-card         { width: 240px; height: 280px; margin-top: -140px; margin-left: -120px; }
+  .guidelines-carousel { height: 310px; }
+  .labs-download-btn  { width: min(380px, 90vw); font-size: 1.3rem; }
+
+  /* WATCH */
+  .watch-inner        { width: min(900px, 94vw); padding: 0 24px; }
+  .watch-bg           { background-size: 140% auto; }
+
+  /* ABOUT */
+  .about-top          { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .member-card        { width: 320px; }
+  .about-cards-stage  { height: 900px; }
 }
 
+/* ─── 860px – small tablet ───────────────────────── */
 @media (max-width: 860px) {
-  .teaser-content { grid-template-columns: 1fr; gap: 36px; }
-  .teaser-title-img { width: clamp(140px, 45vw, 260px); }
+  /* HERO */
+  .title-img      { width: clamp(200px, 52vw, 360px); }
+  .building-img   { width: 100vw; margin-bottom: -1vh; }
+  .tree-left      { width: 48vw; left: -14vw; }
+  .tree-right     { width: 48vw; right: -15vw; }
+  .layer-title    { padding-top: 8vh; }
+  .building-fade  { height: 34%; }
+
+  /* TEASER */
+  .teaser-content          { grid-template-columns: 1fr; gap: 32px; }
+  .teaser-title-img        { width: clamp(140px, 45vw, 260px); }
+
+  /* LABS */
+  .lab-stack               { height: min(500px, 68vh); }
+  .lab-card-img            { height: 180px; }
+  .lab-card-img img        { height: 100%; aspect-ratio: unset; }
+  .lab-card-title          { font-size: 2.6rem; }
+  .lab-card-desc           { font-size: 0.76rem; -webkit-line-clamp: 5; }
+  .guide-card              { width: 220px; height: 260px; margin-top: -130px; margin-left: -110px; }
+  .guidelines-carousel     { height: 290px; }
+  .labs-download-btn       { width: min(340px, 90vw); padding: 14px 20px; font-size: 1.2rem; }
+  .labs-dl-icon            { width: 30px; height: 30px; }
+  .labs-nav-label          { min-width: 160px; font-size: 1.05rem; }
+
+  /* WATCH */
+  .watch-inner             { padding: 0 20px; margin-top: -60px; }
+  .watch-title             { font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 8px; }
+  .watch-subtitle          { font-size: clamp(1.1rem, 3vw, 2rem); margin-top: 24px; }
+  .watch-feedback-btn      { padding: 13px 28px; font-size: 1.2rem; }
+  .watch-bg                { background-size: 180% auto; top: -30vh; }
 }
 
+/* ─── 768px – mobile portrait ───────────────────── */
 @media (max-width: 768px) {
   :root { --nav-height: 56px; }
+
+  /* NAV */
   .navbar       { min-width: unset; width: calc(100% - 20px); max-width: 540px; top: 10px; border-radius: 12px; }
   .nav-inner    { padding: 0 16px; gap: 12px; }
   .nav-links    { gap: 16px; }
   .nav-links a  { font-size: 0.92rem; letter-spacing: 0.10em; }
   .nav-logo img { height: 28px; }
   .nav-cta      { padding: 7px 14px; font-size: 0.9rem !important; }
-  .title-img    { width: clamp(200px, 76vw, 360px); }
+
+  /* HERO */
+  .hero         { min-height: 600px; }
+  .title-img    { width: clamp(180px, 70vw, 320px); }
   .building-img { width: 100vw; margin-bottom: 0; }
-  .tree-left    { width: clamp(120px, 22vw, 220px); margin-left: -6vw; }
-  .tree-right   { width: clamp(120px, 22vw, 220px); margin-right: -6vw; }
+  .tree-left    { width: 52vw; left: -16vw; transform: scale(1.1); }
+  .tree-right   { width: 52vw; right: -17vw; transform: scaleX(-1) scale(1.1); }
   .cloud-back   { width: 110%; max-width: none; }
   .layer-title  { padding-top: 8vh; }
   .building-fade { height: 30%; }
   .scroll-hint  { bottom: 20px; }
+
+  /* TEASER */
+  .teaser-section     { padding: 80px 0 120px; }
+  .teaser-inner       { gap: 28px; }
+  .teaser-desc p      { font-size: 0.88rem; line-height: 1.75; }
+
+  /* LABS */
+  .labs-section       { padding: 0 0 80px; }
+  .labs-inner         { gap: 28px; width: min(1100px, 94vw); }
+  .labs-title         { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+  .labs-guidelines-title { font-size: clamp(1.8rem, 5vw, 3rem); }
+  .lab-stack-wrapper  { width: 100%; }
+  .lab-stack          { width: 94vw; height: min(480px, 70vh); }
+  .lab-card           { grid-template-columns: 1fr; grid-template-rows: 160px 1fr; border-radius: 12px; }
+  .lab-card-img       { height: 160px; padding: 12px; }
+  .lab-card-img img   { height: 100%; aspect-ratio: unset; }
+  .lab-card-body      { padding: 16px 18px 22px; margin-left: 0; gap: 8px; }
+  .lab-card-title     { font-size: clamp(1.8rem, 5vw, 2.8rem); line-height: 0.9; }
+  .lab-card-desc      { font-size: 0.75rem; line-height: 1.7; -webkit-line-clamp: 5; }
+  .guidelines-carousel-wrapper { width: 94vw; }
+  .guidelines-carousel { height: 280px; max-width: 100%; }
+  .guide-card          { width: 200px; height: 250px; margin-top: -125px; margin-left: -100px; }
+  .guide-card-title    { font-size: 1.4rem; }
+  .guide-card-body     { font-size: 0.82rem; -webkit-line-clamp: 6; }
+  .labs-download-btn   { width: min(320px, 90vw); padding: 13px 18px; font-size: 1.1rem; gap: 10px; }
+  .labs-dl-icon        { width: 28px; height: 28px; }
+  .labs-nav-label      { min-width: 140px; font-size: 1rem; }
+  .labs-nav-btn        { font-size: 1.7rem; }
+
+  /* WATCH */
+  .watch-section        { min-height: 100vh; }
+  .watch-inner          { padding: 80px 20px 120px; gap: 28px; margin-top: 0; }
+  .watch-title          { font-size: clamp(2rem, 7vw, 3rem); margin-bottom: 6px; }
+  .watch-subtitle       { font-size: clamp(1rem, 3.5vw, 1.6rem); margin-top: 20px; }
+  .watch-feedback-btn   { padding: 12px 24px; font-size: 1.15rem; gap: 10px; }
+  .watch-mail-icon      { width: 24px; height: 24px; }
+  .watch-bg             { background-position: center top; background-size: 220% auto; top: -20vh; }
+
+  /* ABOUT */
+  .about-top            { grid-template-columns: 1fr; gap: 24px; }
+  .about-headline       { font-size: clamp(3rem, 12vw, 5rem); }
+  .about-cards-stage    { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 10px 0; }
+  .member-card          { position: static; transform: rotate(var(--card-rot, 0deg)); width: 340px; }
+  .member-card:hover    { transform: rotate(0deg) scale(1.05) translateY(-4px); }
+
+  /* FOOTER */
+  .footer-wave svg      { height: 70px; }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    padding: 36px 28px 0;
+  }
+  .footer-brand   { grid-column: 1; grid-row: 1; }
+  .footer-contact { grid-column: 1; grid-row: 2; text-align: left; padding-bottom: 20px; }
+  .footer-nav     { grid-column: 1; grid-row: 3; flex-wrap: wrap; gap: 18px; }
+  .footer-logos   { grid-column: 1; grid-row: 4; justify-content: flex-start; }
 }
 
+/* ─── 600px – small phone ────────────────────────── */
+@media (max-width: 600px) {
+  /* HERO */
+  .hero         { min-height: 550px; }
+  .title-img    { width: clamp(160px, 74vw, 280px); }
+  .tree-left    { width: 60vw; left: -20vw; }
+  .tree-right   { width: 60vw; right: -21vw; }
+  .layer-title  { padding-top: 7vh; }
+
+  /* LABS */
+  .lab-stack      { height: min(520px, 72vh); }
+  .lab-card-img   { height: 140px; }
+  .lab-card-img img { height: 100%; aspect-ratio: unset; }
+  .lab-card-title { font-size: clamp(1.6rem, 5.5vw, 2.4rem); }
+  .lab-card-desc  { -webkit-line-clamp: 4; font-size: 0.73rem; }
+  .lab-card-body  { padding: 12px 14px 18px; }
+  .guidelines-carousel { height: 260px; }
+  .guide-card     { width: 180px; height: 230px; margin-top: -115px; margin-left: -90px; }
+  .guide-card-title { font-size: 1.25rem; }
+  .guide-card-body  { font-size: 0.78rem; -webkit-line-clamp: 5; }
+  .labs-download-btn { width: 90vw; padding: 12px 16px; font-size: 1rem; }
+  .labs-dl-text      { font-size: 0.85rem; max-width: 200px; }
+  .labs-nav-label    { min-width: 120px; font-size: 0.92rem; }
+
+  /* WATCH */
+  .watch-title    { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .watch-subtitle { font-size: clamp(0.9rem, 3.5vw, 1.3rem); }
+  .watch-bg       { background-size: 280% auto; }
+}
+
+/* ─── 480px – very small phone ──────────────────── */
 @media (max-width: 480px) {
+  /* NAV */
   .nav-links.nav-left  li:last-child  { display: none; }
   .nav-links.nav-right li:first-child { display: none; }
-  .title-img    { width: 84vw; }
-  .tree-left, .tree-right { width: 30vw; }
-  .teaser-inner { gap: 32px; }
-  .teaser-desc p { font-size: 0.88rem; }
+
+  /* HERO */
+  .title-img      { width: 82vw; }
+  .tree-left      { width: 65vw; left: -22vw; }
+  .tree-right     { width: 65vw; right: -23vw; }
+  .building-fade  { height: 28%; }
+
+  /* LABS */
+  .labs-inner     { gap: 22px; }
+  .lab-stack      { height: min(540px, 74vh); }
+  .lab-card-img   { height: 120px; }
+  .lab-card-img img { height: 100%; aspect-ratio: unset; }
+  .lab-card-title { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .lab-card-desc  { -webkit-line-clamp: 3; }
+  .guide-card     { width: 160px; height: 210px; margin-top: -105px; margin-left: -80px; }
+  .guide-card-body { font-size: 0.74rem; -webkit-line-clamp: 5; }
+  .labs-download-btn { font-size: 0.92rem; padding: 11px 14px; gap: 8px; }
+  .labs-dl-icon      { width: 24px; height: 24px; }
+  .labs-nav-btn      { font-size: 1.5rem; }
+  .labs-nav-label    { min-width: 100px; font-size: 0.88rem; }
+
+  /* WATCH */
+  .watch-feedback-btn { font-size: 1.1rem; padding: 12px 22px; }
+  .watch-mail-icon    { width: 22px; height: 22px; }
+
+  /* ABOUT */
+  .member-card        { width: 90vw; }
+  .about-cards-stage  { gap: 14px; }
+
+  /* FOOTER */
+  .footer-inner       { padding: 28px 20px 0; }
+  .feedback-box       { padding: 36px 24px 32px; }
+  .footer-logos img   { height: 40px; }
 }
 
-/* ─── Labs responsive ─── */
-@media (max-width: 860px) {
-  .lab-card { grid-template-columns: 1fr; height: auto; }
-  .lab-stack { height: 480px; }
-  .lab-card-img { height: 200px; }
-  .guide-card { width: 200px; height: 240px; margin-top: -120px; margin-left: -100px; }
-}
-@media (max-width: 600px) {
-  .lab-stack { height: 520px; }
-  .guide-card { width: 170px; height: 220px; margin-top: -110px; margin-left: -85px; }
-  .labs-dl-text { font-size: 0.85rem; max-width: 200px; }
-}
+/* ─── 380px – iPhone SE / very narrow ───────────── */
+@media (max-width: 380px) {
+  :root { --nav-height: 52px; }
 
-/* ─── About responsive ─── */
-@media (max-width: 1024px) {
-  .about-top { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .member-card { width: 320px; }
-  .about-cards-stage { height: 900px; }
-}
-@media (max-width: 768px) {
-  .about-top { grid-template-columns: 1fr; gap: 24px; }
-  .about-headline { font-size: clamp(3rem, 12vw, 5rem); }
-  .about-cards-stage { height: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 10px 0; }
-  .member-card { position: static; transform: rotate(var(--card-rot, 0deg)); width: 340px; }
-  .member-card:hover { transform: rotate(0deg) scale(1.05) translateY(-4px); }
-}
-@media (max-width: 480px) {
-  .member-card { width: 90vw; }
-  .about-cards-stage { gap: 14px; }
+  /* NAV */
+  .navbar       { top: 8px; border-radius: 10px; }
+  .nav-logo img { height: 24px; }
+  .nav-cta      { padding: 6px 10px; font-size: 0.82rem !important; }
+  .nav-links a  { font-size: 0.82rem; }
+  .nav-links    { gap: 12px; }
+
+  /* HERO */
+  .hero         { min-height: 500px; }
+  .title-img    { width: 86vw; }
+  .layer-title  { padding-top: 6vh; }
+  .tree-left    { width: 68vw; left: -24vw; }
+  .tree-right   { width: 68vw; right: -25vw; }
+
+  /* LABS */
+  .labs-title         { font-size: 1.9rem; }
+  .lab-stack          { height: min(560px, 76vh); }
+  .lab-card-title     { font-size: 1.3rem; }
+  .guide-card         { width: 148px; height: 195px; margin-top: -97px; margin-left: -74px; }
+  .labs-download-btn  { font-size: 0.82rem; gap: 6px; }
+
+  /* WATCH */
+  .watch-title        { font-size: 1.7rem; }
+  .watch-subtitle     { font-size: 0.88rem; }
+  .watch-feedback-btn { font-size: 1rem; padding: 10px 18px; }
 }
