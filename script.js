@@ -158,7 +158,7 @@
       name: 'Computer Laboratory',
       img: 'images/computer-lab.png',
       stripe: 'red',
-      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, sapien in rhoncus tincidunt, tellus est varius velit, eu laoreet lorem turpis id leo. Nullam ut ultrices ipsum. Curabitur non eleifend orci, ac aliquam arcu. Proin ac sodales est.',
+      desc: 'The CCIT Computer Laboratory is a technology-equipped learning environment designed to support Information Technology and Computing-related laboratory activities. It provides students with access to computers, specialized software, and digital resources for programming, system development, multimedia production, networking, and other hands-on technical exercises.',
       pdfLabel: 'Computer Laboratory Safety Instruction Manual',
       pdfUrl: '#',
       guidelines: [
@@ -174,7 +174,7 @@
       name: 'Chemistry Laboratory',
       img: 'images/chemistry-lab.png',
       stripe: 'navy',
-      desc: 'A fully-equipped chemistry laboratory supporting undergraduate research and coursework in organic, inorganic, analytical, and physical chemistry. Safety is our top priority in all laboratory activities.',
+      desc: 'The COE Chemistry Laboratory is a specialized facility where engineering students conduct chemistry experiments and practical activities. It provides a controlled environment for learning chemical principles, performing laboratory procedures, analyzing substances, and developing safe laboratory practices essential to engineering education.',
       pdfLabel: 'Chemistry Laboratory Safety Instruction Manual',
       pdfUrl: '#',
       guidelines: [
@@ -190,7 +190,7 @@
       name: 'Kitchen Laboratory',
       img: 'images/kitchen-lab.png',
       stripe: 'orange',
-      desc: 'The kitchen laboratory provides students with hands-on experience in food preparation, cooking techniques, sanitation, and kitchen management. It is equipped with modern cooking appliances and workstations designed for safe and efficient culinary training.',
+      desc: 'The CTHM Kitchen Laboratory is a professional training facility used by Hospitality Management students to develop culinary skills and food preparation techniques. It offers a realistic kitchen environment where students practice cooking, food safety, sanitation, kitchen operations, and hospitality industry standards through hands-on learning experiences.',
       pdfLabel: 'Kitchen Laboratory Safety Instruction Manual',
       pdfUrl: '#',
       guidelines: [

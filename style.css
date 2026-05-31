@@ -1166,7 +1166,7 @@ img { display: block; max-width: 100%; }
 .site-footer {
   position: relative;
   z-index: 10;
-  background: var(--navy);
+  background: var(--yellow);
   color: #fff;
   overflow: hidden;
 }
