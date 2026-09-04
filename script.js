@@ -17,8 +17,17 @@
 
   const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
 
+  /* ── Mobile breakpoint helper ───────────────── */
+  const MOBILE_BP = 768;
+  const isMobile = () => window.innerWidth <= MOBILE_BP;
+
   /* ── Parallax ───────────────────────────────── */
   function applyParallax(sy) {
+    if (isMobile()) {
+      // Clear any previously set inline transforms so CSS takes full control
+      layers.forEach(layer => { layer.style.transform = ''; });
+      return;
+    }
     layers.forEach(layer => {
       const offset = -(sy * (parseFloat(layer.dataset.speed) || 0));
       layer.style.transform = `translate3d(0,${offset}px,0)`;
@@ -26,6 +35,11 @@
   }
 
   function applyHeroFade(sy) {
+    if (isMobile()) {
+      // Remove inline opacity on mobile — keep all layers fully visible
+      fadeLayers.forEach(layer => { layer.style.opacity = ''; });
+      return;
+    }
     const opacity = 1 - clamp((sy - heroHeight * 0.15) / (heroHeight * 0.50), 0, 1);
     fadeLayers.forEach(layer => { layer.style.opacity = opacity; });
   }
@@ -260,6 +274,10 @@
     if (!labsSection || !layers.length) return;
 
     function update() {
+      if (isMobile()) {
+        layers.forEach(layer => { layer.style.transform = ''; });
+        return;
+      }
       const rect = labsSection.getBoundingClientRect();
       const relScroll = -rect.top;
       layers.forEach(layer => {
@@ -370,7 +388,7 @@
     - Cards shrink + dim the further they are from centre
     - Clicking any card slides the whole row so it lands at centre
   */
-  const CARD_STEP = 180;   // px between card centres
+  const CARD_STEP_RATIO = 0.62; // matches the original 180px step at the ~290px desktop card width
   const MAX_VISIBLE = 2;    // slots visible each side before fading out
 
   function buildGuidelinesCarousel() {
@@ -438,6 +456,12 @@
     const total = cards.length;
     if (!total) return;
 
+    /* Step scales with the card's actual rendered width, so the fan stays
+       just as tight (relatively) on small mobile cards as on desktop ones,
+       instead of using one fixed px value for every screen size. */
+    const cardWidth = cards[0].getBoundingClientRect().width || 260;
+    const cardStep = cardWidth * CARD_STEP_RATIO;
+
     cards.forEach(card => {
       const idx = parseInt(card.dataset.idx);
       let offset = idx - currentGuideIdx;
@@ -450,7 +474,7 @@
       const visible = absOff <= MAX_VISIBLE;
 
       /* Horizontal position */
-      const tx = offset * CARD_STEP;
+      const tx = offset * cardStep;
 
       /* Scale only — no opacity reduction */
       const scale = Math.max(0.72, 1 - absOff * 0.09);
@@ -520,13 +544,19 @@
     /* ── Background + layer parallax ──────────── */
     function updateAboutParallax() {
       if (!aboutBg) return;
-      const rect = aboutSection.getBoundingClientRect();
-      const relScroll = -rect.top;   // 0 when section top hits viewport top
 
-      /* Bg moves at a gentle 0.30 rate — creates depth vs content */
+      if (isMobile()) {
+        // Freeze background — clear any lingering inline transform
+        aboutBg.style.transform = '';
+        aboutLayers.forEach(layer => { layer.style.transform = ''; });
+        return;
+      }
+
+      const rect = aboutSection.getBoundingClientRect();
+      const relScroll = -rect.top;
+
       aboutBg.style.transform = `translateY(${relScroll * 0.10}px)`;
 
-      /* Tint layers */
       aboutLayers.forEach(layer => {
         const speed = parseFloat(layer.dataset.aboutSpeed) || 0;
         layer.style.transform = `translateY(${relScroll * speed}px)`;
@@ -585,6 +615,11 @@
     if (!watchBg) return;
 
     function updateWatchParallax() {
+      if (isMobile()) {
+        // Freeze the cloud-building background in place
+        watchBg.style.transform = '';
+        return;
+      }
       const section = watchBg.closest('.watch-section');
       if (!section) return;
       const rect = section.getBoundingClientRect();
