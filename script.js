@@ -174,7 +174,7 @@
       stripe: 'red',
       desc: 'The CCIT Computer Laboratory is a technology-equipped learning environment designed to support Information Technology and Computing-related laboratory activities. It provides students with access to computers, specialized software, and digital resources for programming, system development, multimedia production, networking, and other hands-on technical exercises.',
       pdfLabel: 'Computer Laboratory Safety Instruction Manual',
-      pdfUrl: '#',
+      pdfUrl: 'manuals/computer-lab-manual.pdf',
       guidelines: [
         { title: 'Log In Procedures', body: 'Always log in using your assigned credentials. Never share your login with others. Log out properly after each session to protect your work.' },
         { title: 'Equipment Care', body: 'Handle all equipment with care. Report damaged or malfunctioning hardware immediately to the laboratory aide or supervisor.' },
@@ -190,7 +190,7 @@
       stripe: 'navy',
       desc: 'The COE Chemistry Laboratory is a specialized facility where engineering students conduct chemistry experiments and practical activities. It provides a controlled environment for learning chemical principles, performing laboratory procedures, analyzing substances, and developing safe laboratory practices essential to engineering education.',
       pdfLabel: 'Chemistry Laboratory Safety Instruction Manual',
-      pdfUrl: '#',
+      pdfUrl: 'manuals/chemistry-lab-manual.pdf',
       guidelines: [
         { title: 'PPE Required', body: 'Personal protective equipment including lab coat, goggles, and gloves must be worn at all times while inside the laboratory.' },
         { title: 'Chemical Handling', body: 'Read the Safety Data Sheet (SDS) before using any chemical. Never smell or taste unknown substances under any circumstances.' },
@@ -206,7 +206,7 @@
       stripe: 'orange',
       desc: 'The CTHM Kitchen Laboratory is a professional training facility used by Hospitality Management students to develop culinary skills and food preparation techniques. It offers a realistic kitchen environment where students practice cooking, food safety, sanitation, kitchen operations, and hospitality industry standards through hands-on learning experiences.',
       pdfLabel: 'Kitchen Laboratory Safety Instruction Manual',
-      pdfUrl: '#',
+      pdfUrl: 'manuals/kitchen-lab-manual.pdf',
       guidelines: [
         { title: 'Personal Hygiene', body: 'Wash your hands thoroughly before and after handling food. Hair must be properly tied back and appropriate kitchen uniforms must be worn at all times.' },
         { title: 'Knife Safety', body: 'Always handle knives carefully and cut away from your body. Store knives properly after use and never leave sharp tools unattended on workstations.' },

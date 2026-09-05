@@ -1641,18 +1641,24 @@ img { display: block; max-width: 100%; }
 
 /* ─── 768px – mobile portrait ───────────────────── */
 @media (max-width: 768px) {
-  :root { --nav-height: 68px; }
+  :root { --nav-height: 56px; }
 
-  /* NAV — 3-column grid keeps logo truly centred on any phone width */
-  .navbar       { min-width: unset; width: calc(100% - 24px); max-width: 480px; top: 10px; border-radius: 14px; }
-  .nav-inner    { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 0 14px; gap: 0; height: 100%; }
-  .nav-links           { gap: 12px; min-width: 0; display: flex; align-items: center; list-style: none; }
-  .nav-links.nav-left  { justify-self: start; justify-content: flex-start; }
-  .nav-links.nav-right { justify-self: end;   justify-content: flex-end; }
-  .nav-logo            { justify-self: center; display: flex; align-items: center; }
-  .nav-logo img        { height: 50px; width: auto; max-width: none; object-fit: contain; }
-  .nav-links a         { font-size: 0.95rem; letter-spacing: 0.08em; }
-  .nav-cta             { padding: 7px 13px; font-size: 0.88rem !important; letter-spacing: 0.07em !important; white-space: nowrap; border-radius: 7px; }
+  /* NAV — all four links stay visible, sized to fit a phone width.
+     Switched to a 3-column grid (instead of flex space-between) so the
+     logo stays truly centered and the gaps stay even, regardless of
+     "Home/Laboratories" being wider than "About Us/Watch Now". */
+  .navbar       { min-width: unset; width: calc(100% - 24px); max-width: 480px; top: 10px; left: 50%; transform: translateX(-50%); border-radius: 12px; }
+  .nav-inner    {
+    display: grid; grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+    padding: 0 12px; gap: 6px; overflow: hidden;
+  }
+  .nav-links    { gap: 10px; min-width: 0; }
+  .nav-links.nav-left  { justify-self: start; }
+  .nav-links.nav-right { justify-self: end; }
+  .nav-logo     { justify-self: center; min-width: 0; }
+  .nav-links a  { font-size: 0.95rem; letter-spacing: 0.06em; }
+  .nav-logo img { height: 42px; width: auto; max-width: 120px; object-fit: contain; }
+  .nav-cta      { padding: 8px 16px; font-size: 0.92rem !important; letter-spacing: 0.08em !important; white-space: nowrap; }
 
   /* HERO — compact, roughly half the mobile screen. The source cloud/
      building artwork each carry a lot of built-in empty "sky" space
@@ -1800,7 +1806,7 @@ img { display: block; max-width: 100%; }
   .nav-inner    { padding: 0 10px; gap: 6px; }
   .nav-links    { gap: 8px; }
   .nav-links a  { font-size: 0.82rem; letter-spacing: 0.05em; }
-  .nav-logo img { height: 44px; max-width: none; }
+  .nav-logo img { height: 30px; max-width: 78px; }
   .nav-cta      { padding: 7px 14px; font-size: 0.82rem !important; letter-spacing: 0.06em !important; }
 
   /* HERO */
@@ -1838,12 +1844,12 @@ img { display: block; max-width: 100%; }
 
 /* ─── 380px – iPhone SE / very narrow ───────────── */
 @media (max-width: 380px) {
-  :root { --nav-height: 62px; }
+  :root { --nav-height: 52px; }
 
   /* NAV — narrowest phones: shrink further so all four links still fit */
   .navbar       { top: 8px; border-radius: 10px; width: calc(100% - 12px); }
   .nav-inner    { padding: 0 8px; gap: 4px; }
-  .nav-logo img { height: 40px; max-width: none; }
+  .nav-logo img { height: 26px; max-width: 66px; }
   .nav-cta      { padding: 6px 12px; font-size: 0.74rem !important; letter-spacing: 0.04em !important; }
   .nav-links a  { font-size: 0.74rem; letter-spacing: 0.04em; }
   .nav-links    { gap: 6px; }
