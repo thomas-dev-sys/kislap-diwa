@@ -173,15 +173,20 @@
       img: 'images/computer-lab.png',
       stripe: 'red',
       desc: 'The CCIT Computer Laboratory is a technology-equipped learning environment designed to support Information Technology and Computing-related laboratory activities. It provides students with access to computers, specialized software, and digital resources for programming, system development, multimedia production, networking, and other hands-on technical exercises.',
-      pdfLabel: 'Computer Laboratory Safety Instruction Manual',
-      pdfUrl: 'manuals/computer-lab-manual.pdf',
+      pdfLabel: 'Computer Laboratory Safety Guidelines',
+      pdfUrl: 'manuals/Computer Laboratory Manual.pdf',
       guidelines: [
-        { title: 'Log In Procedures', body: 'Always log in using your assigned credentials. Never share your login with others. Log out properly after each session to protect your work.' },
-        { title: 'Equipment Care', body: 'Handle all equipment with care. Report damaged or malfunctioning hardware immediately to the laboratory aide or supervisor.' },
-        { title: 'No Food & Drinks', body: 'Strictly no food or drinks inside the laboratory. Spills can cause permanent damage to computers and pose safety hazards.' },
-        { title: 'Software Policy', body: 'Do not install unauthorized software. Only use programs approved for academic use. Downloading pirated content is strictly prohibited.' },
-        { title: 'Noise Regulation', body: 'Maintain a quiet environment. Use headphones when audio is required. Loud conversations are not allowed during laboratory hours.' },
-        { title: 'Emergency Exit', body: 'Familiarize yourself with the emergency exit procedures. In case of fire or emergency, calmly proceed to the nearest exit.' },
+        { title: 'Academic Use Only', body: 'Computer units in the laboratory are strictly for academic, instructional, and research purposes only.' },
+        { title: 'Do Not Disconnect Cables', body: 'Do not disconnect or remove any cables from the computer units to connect personal devices such as laptops, switches, or other equipment.' },
+        { title: 'Do Not Dismantle Equipment', body: 'Do not dismantle, open, or modify any laboratory equipment in an attempt to troubleshoot or repair issues.' },
+        { title: 'No Games', body: 'Playing any kind of games on laboratory computers is strictly prohibited.' },
+        { title: 'Authorized Software Only', body: 'Only software owned by or properly licensed to National University shall be installed on laboratory computers.' },
+        { title: 'No Software Installation', body: 'Lab users are strictly prohibited from installing or downloading software on any computer unit in the laboratory.' },
+        { title: 'Save Files at Your Own Risk', body: 'Lab users may save files to the D:\\ drive at their own risk. ITSO is not responsible for files that are lost, stolen, deleted, or otherwise become inaccessible.' },
+        { title: 'No System Modifications', body: 'Modifying desktop wallpapers, system settings, or any computer configuration is strictly prohibited.' },
+        { title: 'No Security Violations', body: 'Attempts to compromise system security, including guessing passwords or using hacking tools or software, are strictly prohibited and may result in disciplinary action.' },
+        { title: 'No Harassing or Offensive Content', body: 'Sending or sharing harassing, threatening, or offensive messages, pictures, or files is strictly prohibited.' },
+        { title: 'No Pornographic or Explicit Content', body: 'Accessing pornographic materials or sexually explicit websites using laboratory computers is strictly prohibited.' },
       ],
     },
     {
@@ -189,15 +194,19 @@
       img: 'images/chemistry-lab.png',
       stripe: 'navy',
       desc: 'The COE Chemistry Laboratory is a specialized facility where engineering students conduct chemistry experiments and practical activities. It provides a controlled environment for learning chemical principles, performing laboratory procedures, analyzing substances, and developing safe laboratory practices essential to engineering education.',
-      pdfLabel: 'Chemistry Laboratory Safety Instruction Manual',
-      pdfUrl: 'manuals/chemistry-lab-manual.pdf',
+      pdfLabel: 'Chemistry Laboratory Safety Guidelines',
+      pdfUrl: 'manuals/Chemistry Laboratory Manual.pdf',
       guidelines: [
-        { title: 'PPE Required', body: 'Personal protective equipment including lab coat, goggles, and gloves must be worn at all times while inside the laboratory.' },
-        { title: 'Chemical Handling', body: 'Read the Safety Data Sheet (SDS) before using any chemical. Never smell or taste unknown substances under any circumstances.' },
-        { title: 'Waste Disposal', body: 'Dispose of chemical waste only in designated containers. Pouring chemicals down the drain is strictly prohibited without proper authorization.' },
-        { title: 'Fire Safety', body: 'Know the location of fire extinguishers, eye-wash stations, and emergency showers before beginning any experiment.' },
-        { title: 'No Open Flames', body: 'Open flames are prohibited near flammable chemicals. Use electric hotplates unless specifically instructed to use a Bunsen burner.' },
-        { title: 'Spill Procedure', body: 'Report all chemical spills immediately. Follow the posted spill response procedure and notify the laboratory supervisor at once.' },
+        { title: 'Know the Safety Equipment', body: 'Be familiar with the location and proper operation of the eyewash station and safety shower before starting laboratory work.' },
+        { title: 'Prevent Chemical Exposure', body: 'Understand that chemicals can enter the body through inhalation, ingestion, and skin absorption, and always follow proper safety precautions.' },
+        { title: 'Wear Proper Protective Gear', body: 'Wear safety goggles and closed-toe shoes when chemicals are used. Contact lenses and open-toed footwear are not permitted.' },
+        { title: 'No Food or Drinks', body: 'Food and drinks are strictly prohibited inside the laboratory.' },
+        { title: 'Wash Hands Thoroughly', body: 'Wash your hands and forearms thoroughly after conducting laboratory activities.' },
+        { title: 'Dispose of Chemicals Properly', body: 'Follow the proper chemical disposal procedures. Never dispose of chemicals in unauthorized containers or drains.' },
+        { title: 'Handle Test Tubes Safely', body: 'When holding or heating a test tube, never point it toward yourself or others.' },
+        { title: 'Tie Back Long Hair', body: 'Always tie back long hair securely before conducting experiments.' },
+        { title: 'Keep the Workspace Clear', body: 'Place backpacks and unnecessary items in designated areas. Keep only the materials needed for the experiment on the worktable.' },
+        { title: 'Review the MSDS', body: 'Review the Material Safety Data Sheet (MSDS) before beginning an experiment to understand the hazards, handling, and safety precautions for the chemicals being used.' },
       ],
     },
     {
@@ -205,15 +214,19 @@
       img: 'images/kitchen-lab.png',
       stripe: 'orange',
       desc: 'The CTHM Kitchen Laboratory is a professional training facility used by Hospitality Management students to develop culinary skills and food preparation techniques. It offers a realistic kitchen environment where students practice cooking, food safety, sanitation, kitchen operations, and hospitality industry standards through hands-on learning experiences.',
-      pdfLabel: 'Kitchen Laboratory Safety Instruction Manual',
-      pdfUrl: 'manuals/kitchen-lab-manual.pdf',
+      pdfLabel: 'Kitchen Laboratory Safety Guidelines',
+      pdfUrl: 'manuals/Kitchen Laboratory Manual.pdf',
       guidelines: [
-        { title: 'Personal Hygiene', body: 'Wash your hands thoroughly before and after handling food. Hair must be properly tied back and appropriate kitchen uniforms must be worn at all times.' },
-        { title: 'Knife Safety', body: 'Always handle knives carefully and cut away from your body. Store knives properly after use and never leave sharp tools unattended on workstations.' },
-        { title: 'Heat Precautions', body: 'Use oven mitts or dry towels when handling hot cookware. Be cautious around stoves, ovens, and boiling liquids to prevent burns and accidents.' },
-        { title: 'Clean Workstations', body: 'Keep all preparation areas clean and sanitized during and after cooking activities. Immediately wipe spills to avoid slips and contamination.' },
-        { title: 'Food Storage', body: 'Store raw and cooked food separately to prevent cross-contamination. Properly label and refrigerate perishable ingredients after use.' },
-        { title: 'Appliance Shutdown', body: 'Turn off all kitchen appliances and gas valves after use. Inspect your station before leaving to ensure the laboratory remains safe and organized.' },
+        { title: 'Follow Instructions', body: 'Follow all instructions and guidelines provided by the instructor or laboratory supervisor throughout the class.' },
+        { title: 'Authorized Supervision Only', body: 'Conduct laboratory activities only under the supervision of authorized personnel. Only the laboratory custodian may operate or access the gas lines and ovens.' },
+        { title: 'No Horseplay', body: 'Avoid horseplay, distractions, and disruptive behavior. Always act respectfully and responsibly to maintain a safe laboratory environment.' },
+        { title: 'Wear Complete Chef’s Uniform', body: 'Wear a complete and clean chef’s uniform, including a chef’s hat (hamlet), apron, and slip-resistant enclosed shoes.' },
+        { title: 'No Jewelry or Artificial Nails', body: 'Do not wear jewelry or accessories. Keep fingernails short and clean; artificial nails and nail polish are strictly prohibited.' },
+        { title: 'Wash Hands Properly', body: 'Wash hands thoroughly before handling food and immediately after contact with raw ingredients or cleaning agents.' },
+        { title: 'Report Illness or Open Wounds', body: 'Inform the instructor if you are unwell or have open wounds, as this may affect food safety and the well-being of others.' },
+        { title: 'Prevent Cross-Contamination', body: 'Follow proper food storage, preparation, cooking temperatures, and handling procedures. Keep raw and cooked foods separate and use clean equipment.' },
+        { title: 'No Eating', body: 'Eating inside the laboratory is strictly prohibited, except during authorized food tasting or evaluation activities.' },
+        { title: 'Never Leave Equipment Unattended', body: 'Stoves and ovens must never be left unattended while in use. Always monitor cooking equipment throughout the activity.' },
       ],
     },
   ];
@@ -363,8 +376,11 @@
   }
 
   function updateLabNav() {
-    const label = document.getElementById('labNavLabel');
-    if (label) label.textContent = LABS_DATA[currentLabIdx].name;
+    const labels = document.querySelectorAll('.labs-nav-label');
+
+    labels.forEach(label => {
+      label.textContent = LABS_DATA[currentLabIdx].name;
+    });
   }
 
   function updateDownloadBtn() {
@@ -512,10 +528,16 @@
 
   /* ── Bind nav buttons ────────────────────────── */
   function initLabsNav() {
-    const prevBtn = document.getElementById('labPrev');
-    const nextBtn = document.getElementById('labNext');
-    if (prevBtn) prevBtn.addEventListener('click', retreatLab);
-    if (nextBtn) nextBtn.addEventListener('click', advanceLab);
+    const prevBtns = document.querySelectorAll('.lab-prev');
+    const nextBtns = document.querySelectorAll('.lab-next');
+
+    prevBtns.forEach(btn => {
+      btn.addEventListener('click', retreatLab);
+    });
+
+    nextBtns.forEach(btn => {
+      btn.addEventListener('click', advanceLab);
+    });
   }
 
   /* ── Init laboratories ───────────────────────── */
