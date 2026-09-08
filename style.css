@@ -847,7 +847,7 @@ img { display: block; max-width: 100%; }
   right: 0;
   top: -60vh;   /* reach up into About Us section */
   bottom: 0;
-  background: url('images/cloud-building.png') center -250px / 100% auto no-repeat;
+  background: url('images/cloud-building.webp') center -250px / 100% auto no-repeat;
   z-index: 0;
   will-change: transform;
   pointer-events: none;
@@ -1353,7 +1353,7 @@ img { display: block; max-width: 100%; }
 .about-bg {
   position: absolute;
   inset: 0;
-  background: url('images/sky-grass-background.png') center center / cover no-repeat;
+  background: url('images/sky-grass-background.webp') center center / cover no-repeat;
   will-change: transform;
   z-index: 0;
   /* reduced overshoot so parallax effect is more subtle */

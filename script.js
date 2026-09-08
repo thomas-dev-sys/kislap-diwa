@@ -170,7 +170,7 @@
   const LABS_DATA = [
     {
       name: 'Computer Laboratory',
-      img: 'images/computer-lab.png',
+      img: 'images/computer-lab.webp',
       stripe: 'red',
       desc: 'The CCIT Computer Laboratory is a technology-equipped learning environment designed to support Information Technology and Computing-related laboratory activities. It provides students with access to computers, specialized software, and digital resources for programming, system development, multimedia production, networking, and other hands-on technical exercises.',
       pdfLabel: 'Computer Laboratory Safety Guidelines',
@@ -191,7 +191,7 @@
     },
     {
       name: 'Chemistry Laboratory',
-      img: 'images/chemistry-lab.png',
+      img: 'images/chemistry-lab.webp',
       stripe: 'navy',
       desc: 'The COE Chemistry Laboratory is a specialized facility where engineering students conduct chemistry experiments and practical activities. It provides a controlled environment for learning chemical principles, performing laboratory procedures, analyzing substances, and developing safe laboratory practices essential to engineering education.',
       pdfLabel: 'Chemistry Laboratory Safety Guidelines',
@@ -211,7 +211,7 @@
     },
     {
       name: 'Kitchen Laboratory',
-      img: 'images/kitchen-lab.png',
+      img: 'images/kitchen-lab.webp',
       stripe: 'orange',
       desc: 'The CTHM Kitchen Laboratory is a professional training facility used by Hospitality Management students to develop culinary skills and food preparation techniques. It offers a realistic kitchen environment where students practice cooking, food safety, sanitation, kitchen operations, and hospitality industry standards through hands-on learning experiences.',
       pdfLabel: 'Kitchen Laboratory Safety Guidelines',
