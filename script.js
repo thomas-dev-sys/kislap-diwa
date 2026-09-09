@@ -329,7 +329,10 @@
 
       card.innerHTML = `
         <div class="lab-card-img">
-          <img src="${lab.img}" alt="${lab.name}" loading="lazy" decoding="async" />
+          <img src="${lab.img.replace('.webp', '-1200.webp')}"
+               srcset="${lab.img.replace('.webp', '-700.webp')} 700w, ${lab.img.replace('.webp', '-1200.webp')} 1200w"
+               sizes="(max-width: 1024px) 90vw, 640px"
+               alt="${lab.name}" loading="lazy" decoding="async" />
         </div>
         <div class="lab-card-body">
           <div class="lab-card-title">${lab.name}</div>
