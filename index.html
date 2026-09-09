@@ -9,7 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- LCP image: fetch it immediately, at top priority, in parallel with everything else -->
-  <link rel="preload" as="image" href="images/campus-building.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/campus-building-1360.webp" fetchpriority="high"
+    imagesrcset="images/campus-building-640.webp 640w,
+                 images/campus-building-1000.webp 1000w,
+                 images/campus-building-1360.webp 1360w"
+    imagesizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px" />
 
   <!-- Load style.css with high priority (it's small and render-critical) -->
   <link rel="stylesheet" href="style.css" />
@@ -53,15 +57,15 @@
       <img src="images/cloud-background-1360.webp" srcset="images/cloud-background-640.webp 640w,
           images/cloud-background-1000.webp 1000w,
           images/cloud-background-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px"
-        alt="Cloud background" class="cloud-background" decoding="async" />
+        alt="Cloud background" class="cloud-back" decoding="async" />
 
     </div>
 
     <div class="hero-layer layer-title" data-speed="0.22" id="filmTitle">
       <img src="images/kislap-diwa-title-480.webp" srcset="images/kislap-diwa-title-240.webp 240w,
           images/kislap-diwa-title-360.webp 360w,
-          images/kislap-diwa-title-480.webp 480w" sizes="(max-width: 480px) 100vw, 480px" alt="Kislap Diwa"
-        class="kislap-diwa-title" decoding="async" />
+          images/kislap-diwa-title-480.webp 480w" sizes="(max-width: 480px) 76vw, 480px" alt="Kislap Diwa"
+        class="title-img" decoding="async" />
     </div>
 
     <div class="hero-layer layer-building" data-speed="0.18">
@@ -74,14 +78,14 @@
     <div class="hero-layer layer-tree-left" data-speed="0">
       <img src="images/side-trees-1360.webp" srcset="images/side-trees-640.webp 640w,
             images/side-trees-1000.webp 1000w,
-            images/side-trees-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px" alt=""
+            images/side-trees-1360.webp 1360w" sizes="(max-width: 1280px) 52vw, 45vw" alt=""
         class="tree-left" decoding="async" />
     </div>
 
     <div class="hero-layer layer-tree-right" data-speed="0">
       <img src="images/side-trees-1360.webp" srcset="images/side-trees-640.webp 640w,
             images/side-trees-1000.webp 1000w,
-            images/side-trees-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px" alt=""
+            images/side-trees-1360.webp 1360w" sizes="(max-width: 1280px) 52vw, 45vw" alt=""
         class="tree-right" decoding="async" />
     </div>
 
