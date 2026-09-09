@@ -7,11 +7,23 @@
   <title>Ang Kislap-Diwa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Poppins:wght@300;400;500&display=swap"
-    rel="stylesheet" />
+
+  <!-- LCP image: fetch it immediately, at top priority, in parallel with everything else -->
+  <link rel="preload" as="image" href="images/campus-building.webp" fetchpriority="high" />
+
+  <!-- Load style.css with high priority (it's small and render-critical) -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/dnd-favicon.webp" type="image/png">
+
+  <!-- Fonts: don't block first paint. Load the stylesheet async, apply once ready. -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Poppins:wght@300;400;500&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@400;600&family=Lato:wght@300;400&family=Poppins:wght@300;400;500&display=swap" />
+  </noscript>
+
+  <link rel="icon" href="images/dnd-favicon.png" type="image/png">
 </head>
 
 <body>
@@ -34,38 +46,52 @@
   </nav>
 
   <!-- HERO -->
-  <main>
-    <section class="hero" id="hero">
-      <div class="hero-layer layer-bg"></div>
+  <section class="hero" id="hero">
+    <div class="hero-layer layer-bg"></div>
 
-      <div class="hero-layer layer-clouds-back" data-speed="0.08">
-        <img src="images/cloud-background.webp" alt="" class="cloud-back" />
-      </div>
+    <div class="hero-layer layer-clouds-back" data-speed="0.08">
+      <img src="images/cloud-background-1360.webp" srcset="images/cloud-background-640.webp 640w,
+          images/cloud-background-1000.webp 1000w,
+          images/cloud-background-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px"
+        alt="Cloud background" class="cloud-background" decoding="async" />
 
-      <div class="hero-layer layer-title" data-speed="0.22" id="filmTitle">
-        <img src="images/kislap-diwa-title.webp" alt="Ang Kislap-Diwa" class="title-img" />
-      </div>
+    </div>
 
-      <div class="hero-layer layer-building" data-speed="0.18">
-        <img src="images/campus-building.webp" alt="National University Campus" class="building-img" />
-      </div>
+    <div class="hero-layer layer-title" data-speed="0.22" id="filmTitle">
+      <img src="images/kislap-diwa-title-480.webp" srcset="images/kislap-diwa-title-240.webp 240w,
+          images/kislap-diwa-title-360.webp 360w,
+          images/kislap-diwa-title-480.webp 480w" sizes="(max-width: 480px) 100vw, 480px" alt="Kislap Diwa"
+        class="kislap-diwa-title" decoding="async" />
+    </div>
 
-      <div class="hero-layer layer-tree-left" data-speed="0">
-        <img src="images/side-trees.webp" alt="" class="tree-left" />
-      </div>
+    <div class="hero-layer layer-building" data-speed="0.18">
+      <img src="images/campus-building-1360.webp" srcset="images/campus-building-640.webp 640w,
+          images/campus-building-1000.webp 1000w,
+          images/campus-building-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px"
+        alt="National University Campus" class="building-img" fetchpriority="high" decoding="async" />
+    </div>
 
-      <div class="hero-layer layer-tree-right" data-speed="0">
-        <img src="images/side-trees.webp" alt="" class="tree-right" />
-      </div>
+    <div class="hero-layer layer-tree-left" data-speed="0">
+      <img src="images/side-trees-1360.webp" srcset="images/side-trees-640.webp 640w,
+            images/side-trees-1000.webp 1000w,
+            images/side-trees-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px" alt=""
+        class="tree-left" decoding="async" />
+    </div>
 
-      <div class="building-fade"></div>
+    <div class="hero-layer layer-tree-right" data-speed="0">
+      <img src="images/side-trees-1360.webp" srcset="images/side-trees-640.webp 640w,
+            images/side-trees-1000.webp 1000w,
+            images/side-trees-1360.webp 1360w" sizes="(max-width: 480px) 100vw, (max-width: 900px) 90vw, 1360px" alt=""
+        class="tree-right" decoding="async" />
+    </div>
 
-      <div class="scroll-hint" id="scrollHint">
-        <span class="scroll-label">Scroll</span>
-        <div class="scroll-arrow"></div>
-      </div>
-    </section>
-  </main>
+    <div class="building-fade"></div>
+
+    <div class="scroll-hint" id="scrollHint">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
 
   <!-- FILM TEASER -->
   <section class="teaser-section" id="teaser">
@@ -77,7 +103,7 @@
           <div class="video-frame">
             <iframe src="https://drive.google.com/file/d/1Lw6miH0QwW56oooAqMZeWV426VHx1GYt/preview"
               title="Ang Kislap-Diwa — Official Teaser" width="100%" height="500" frameborder="0" allow="autoplay"
-              allowfullscreen> </iframe>
+              allowfullscreen loading="lazy"> </iframe>
           </div>
         </div>
 
@@ -183,33 +209,33 @@
         <!-- Row 1 -->
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="1"
           style="--card-x: 1%; --card-y: 5%; --card-rot: -8deg; --card-delay: 0.05s;">
-          <img src="images/cruz.webp" alt="Member 1" />
+          <img src="images/cruz.webp" alt="Member 1" loading="lazy" decoding="async" />
         </div>
 
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="2"
           style="--card-x: 34%; --card-y: -2%; --card-rot: 4deg; --card-delay: 0.12s;">
-          <img src="images/laput.webp" alt="Member 2" />
+          <img src="images/laput.webp" alt="Member 2" loading="lazy" decoding="async" />
         </div>
 
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="3"
           style="--card-x: 66%; --card-y: 5%; --card-rot: 7deg; --card-delay: 0.08s;">
-          <img src="images/gascon.webp" alt="Member 3" />
+          <img src="images/gascon.webp" alt="Member 3" loading="lazy" decoding="async" />
         </div>
 
         <!-- Row 2 -->
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="4"
           style="--card-x: 1%; --card-y: 55%; --card-rot: -6deg; --card-delay: 0.18s;">
-          <img src="images/oligo.webp" alt="Member 4" />
+          <img src="images/oligo.webp" alt="Member 4" loading="lazy" decoding="async" />
         </div>
 
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="5"
           style="--card-x: 34%; --card-y: 60%; --card-rot: -4deg; --card-delay: 0.22s;">
-          <img src="images/malinis.webp" alt="Member 5" />
+          <img src="images/malinis.webp" alt="Member 5" loading="lazy" decoding="async" />
         </div>
 
         <div class="member-card reveal-el" data-reveal="fade-up" data-member="6"
           style="--card-x: 66%; --card-y: 55%; --card-rot: 5deg; --card-delay: 0.15s;">
-          <img src="images/corocoto.webp" alt="Member 6" />
+          <img src="images/corocoto.webp" alt="Member 6" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
@@ -237,7 +263,7 @@
         <div class="watch-video-frame">
           <iframe src="https://drive.google.com/file/d/1Lw6miH0QwW56oooAqMZeWV426VHx1GYt/preview"
             title="Ang Kislap-Diwa — Full Film" width="100%" height="500" frameborder="0" allow="autoplay"
-            allowfullscreen> </iframe>
+            allowfullscreen loading="lazy"> </iframe>
         </div>
       </div>
 
@@ -321,10 +347,10 @@
       </nav>
 
       <div class="footer-logos">
-        <img src="images/nu-logo.webp" alt="Stakeholder logo" />
-        <img src="images/nu-ccit-logo.webp" alt="Stakeholder logo" />
-        <img src="images/dnd-logo.webp" alt="Stakeholder logo" />
-        <img src="images/sdg-4-logo.webp" alt="Stakeholder logo" />
+        <img src="images/nu-logo.webp" alt="Stakeholder logo" loading="lazy" decoding="async" />
+        <img src="images/nu-ccit-logo.webp" alt="Stakeholder logo" loading="lazy" decoding="async" />
+        <img src="images/dnd-logo.webp" alt="Stakeholder logo" loading="lazy" decoding="async" />
+        <img src="images/sdg-4-logo.webp" alt="Stakeholder logo" loading="lazy" decoding="async" />
       </div>
 
     </div>

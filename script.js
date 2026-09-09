@@ -60,6 +60,15 @@
     setTimeout(() => filmTitle.classList.add('animate-float'), 2500);
   }
 
+  /* ── Scroll-driven callback registry ─────────────
+     Sections (about/watch parallax, etc.) register their update fn here
+     instead of adding their own 'scroll' listeners. Everything then reads
+     layout (getBoundingClientRect) and writes styles inside ONE rAF pass,
+     instead of each section doing its own read→write on every raw scroll
+     event — which is what was causing the "Forced reflow" warning. */
+  const scrollCallbacks = [];
+  function registerScrollUpdate(fn) { scrollCallbacks.push(fn); }
+
   /* ── RAF loop ───────────────────────────────── */
   function tick() {
     requestAnimationFrame(tick);
@@ -69,6 +78,7 @@
     applyHeroFade(scrollY);
     updateNavbar(scrollY);
     updateScrollHint(scrollY);
+    for (let i = 0; i < scrollCallbacks.length; i++) scrollCallbacks[i]();
   }
 
   window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
@@ -299,7 +309,7 @@
       });
     }
 
-    window.addEventListener('scroll', update, { passive: true });
+    registerScrollUpdate(update);
     update();
   }
 
@@ -319,7 +329,7 @@
 
       card.innerHTML = `
         <div class="lab-card-img">
-          <img src="${lab.img}" alt="${lab.name}" />
+          <img src="${lab.img}" alt="${lab.name}" loading="lazy" decoding="async" />
         </div>
         <div class="lab-card-body">
           <div class="lab-card-title">${lab.name}</div>
@@ -585,7 +595,7 @@
       });
     }
 
-    window.addEventListener('scroll', updateAboutParallax, { passive: true });
+    registerScrollUpdate(updateAboutParallax);
     updateAboutParallax();
 
     /* ── Card lightbox ─────────────────────────── */
@@ -649,7 +659,7 @@
       watchBg.style.transform = `translateY(${relScroll * 0.12}px)`;
     }
 
-    window.addEventListener('scroll', updateWatchParallax, { passive: true });
+    registerScrollUpdate(updateWatchParallax);
     updateWatchParallax();
   }
 
